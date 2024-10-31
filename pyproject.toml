@@ -1,14 +1,17 @@
-[build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
-
-[project]
-name = "nsipy"
-authors = [{name = "Sebastian Rowan", email = "sebastian.rowan@unh.edu"}]
+[tool.poetry]
+name = "nsi-py"
+version = "0.1.0"
+description = "Package to download data from the U.S. Army Corps of Engineers National Structures Inventory using the NSI API."
+authors = ["Sebastian Rowan <sebastian.rowan@unh.edu>"]
 readme = "README.md"
-license = {file = "LICENSE"}
-classifiers = ["License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"]
-dynamic = ["version", "description"]
 
-[project.urls]
-Home = "https://github.com/sebastianrowan/nsi-py"
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.32.3"
+geopandas = "^1.0.1"
+pandas = "^2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
