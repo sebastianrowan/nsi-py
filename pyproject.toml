@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "nsi-py"
+name = "nsipy"
 version = "0.1.0"
 description = "Package to download data from the U.S. Army Corps of Engineers National Structures Inventory using the NSI API."
 authors = ["Sebastian Rowan <sebastian.rowan@unh.edu>"]
