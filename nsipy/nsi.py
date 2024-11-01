@@ -36,7 +36,11 @@ def get_geoid_nsi(geoid: str | int) -> GeoDataFrame:
     except requests.exceptions.HTTPError as err:
             raise SystemExit(err)
     
-    nsi = geopandas.read_file(r.text, driver='GeoJSON')
+    try:
+        nsi = geopandas.read_file(r.text)
+    except:
+        nsi = geopandas.read_file(r.text, driver='GeoJSON')
+
     return(nsi)
             
 
@@ -66,7 +70,10 @@ def get_shp_nsi(shp: GeoDataFrame) -> GeoDataFrame:
     except requests.exceptions.HTTPError as err:
         raise SystemExit(err)
         
-    nsi = geopandas.read_file(r.text, driver='GeoJSON')
+    try:
+        nsi = geopandas.read_file(r.text)
+    except:
+        nsi = geopandas.read_file(r.text, driver='GeoJSON')
 
     return(nsi)
 
@@ -105,7 +112,10 @@ def get_bbox_nsi(extent: tuple, stats_only: bool = False) -> GeoDataFrame| DataF
     if stats_only:
         nsi = json_normalize(json.loads(r.text))
     else:
-        nsi = geopandas.read_file(r.text, driver='GeoJSON')
+        try:
+            nsi = geopandas.read_file(r.text)
+        except:
+            nsi = geopandas.read_file(r.text, driver='GeoJSON')
 
     return(nsi)
 
